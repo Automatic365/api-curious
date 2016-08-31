@@ -3,7 +3,7 @@ class GithubService
 
   def initialize
     @connection        = Faraday.new('https://api.github.com')
-    @connection.header['Authorization'] = "token #{ENV['1f67bbcc786fc98ffac7491c52134d0bb7fca39f']}"
+    @connection.header['Authorization'] = "token #{ENV['token']}"
   end
 
   def parse(response)
