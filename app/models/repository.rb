@@ -14,7 +14,7 @@ class Repository < OpenStruct
   end
 
   def self.starred_repos(user)
-    respos_hashes = services(user).get_starred
+    repos_hashes = services(user).get_starred
 
     repos_hashes.map do |repo_hash|
       Repository.new(repo_hash)

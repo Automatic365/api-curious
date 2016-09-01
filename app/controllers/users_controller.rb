@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: current_user.id)
+    @dashboard = Dashboard.new(current_user)
   end
 
 end
