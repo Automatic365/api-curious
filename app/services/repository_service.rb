@@ -37,7 +37,7 @@ class RepositoryService
   end
 
   def get_events(username)
-    response = connection.get("/users/:username/events")
+    response = connection.get("/users/:#{user.nickname}/events")
     parse(response.body)
   end
 
