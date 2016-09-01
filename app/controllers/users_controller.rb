@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @repositories = Repository.new(current_user)
+    @dashboard = Dashboard.new(current_user)
   end
 
 end

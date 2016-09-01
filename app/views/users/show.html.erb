@@ -1,9 +1,10 @@
 <% if current_user %>
 <h1><%= "Welcome, #{current_user.name}" %>!</h1><br>
 <%= image_tag(current_user.image) %><br>
-<% @repositories.each do |repo| %>
-*<%= link_to "#{repo.name}", repo.html_url %><br>
-<% end %>
+<h3>Followers: <%= @dashboard.followers.count %></h3><br>
+<h3>Following: <%= @dashboard.following.count %></h3><br>
+<h3>Starred Repos: <%= @dashboard.starred_repos.count %><br></h3>
+
 
 <% else %>
 <%= link_to "Sign in with Github", '/auth/github' %>
