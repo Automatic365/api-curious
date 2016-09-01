@@ -31,13 +31,13 @@ class RepositoryService
     parse(response.body)
   end
 
-  def get_feed
-    response = connection.get('/feeds')
+  def get_feed(user)
+    response = connection.get("#{user.nickname}/feeds")
     parse(response.body)
   end
 
-  def get_events(username)
-    response = connection.get("/users/:#{user.nickname}/events")
+  def get_events(user)
+    response = connection.get("/users/#{user.nickname}/events")
     parse(response.body)
   end
 

@@ -1,6 +1,8 @@
 <% if current_user %>
 <%= "Welcome #{current_user.name}" %><br>
+<%= link_to "Dashboard", user_path(current_user.id) %>
 <%= link_to "Logout", signout_path %>
 <% else %>
+<h1>Welcome to JitHub!</h1>
 <%= link_to "Sign in with Github", '/auth/github' %>
 <% end %>

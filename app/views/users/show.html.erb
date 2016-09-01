@@ -1,9 +1,20 @@
 <% if current_user %>
 <h1><%= "Welcome, #{current_user.name}" %>!</h1><br>
 <%= image_tag(current_user.image) %><br>
+<h4><%= current_user.nickname %></h4><br>
 <h3>Followers: <%= @dashboard.followers.count %></h3><br>
 <h3>Following: <%= @dashboard.following.count %></h3><br>
-<h3>Starred Repos: <%= @dashboard.starred_repos.count %><br></h3>
+<h3>Starred Repos: <%= @dashboard.starred_repos.count %></h3><br><br>
+
+
+<h2> Recent Commits </h2>
+<% events = @dashboard.events(@dashboard.user) %>
+<% events.each do |event| %>
+<% if event.type == "PushEvent" %>
+<%= event.repo.name %>:
+<%= event.created_at %><br>
+<% end %>
+<% end %>
 
 
 <% else %>

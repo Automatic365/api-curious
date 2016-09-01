@@ -24,20 +24,12 @@ class Dashboard
   end
 
 
-  def self.feed(user)
-    repos_hashes = services(user).get_feed
-
-    repos_hashes.map do |repo_hash|
-      Repository.new(repo_hash)
-    end
+  def feed(username)
+    services.get_feed(username)
   end
 
-  def self.events(user)
-    repos_hashes = services(user).get_events
-
-    repos_hashes.map do |repo_hash|
-      Repository.new(repo_hash)
-    end
+  def events(username)
+    services.get_events(username)
   end
 
 end
